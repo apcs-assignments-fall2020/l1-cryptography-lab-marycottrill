@@ -22,19 +22,63 @@ public class Caesar {
     }
 
     public static String decryptCaesar(String message) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String str2 = "";
+        for (int i = 0; i < message.length(); i++){
+            if ((message.charAt(i) >= 65 && message.charAt(i) <= 90)){
+                int a = ((message.charAt(i) - 42) % 26) + 65;
+                str2 += (char)(a);
+            }
+            else if ((message.charAt(i) >= 97 && message.charAt(i) <= 122)){
+                int a = ((message.charAt(i) - 48) % 26) + 97;
+                str2 += (char)(a); 
+            }
+            else {
+                str2 += message.charAt(i);
+            }
+            
+        }
+        return str2;
     }
 
     public static String encryptCaesarKey(String message, int key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String str2 = "";
+        for (int i = 0; i < message.length(); i++){
+            if ((message.charAt(i) >= 65 && message.charAt(i) <= 90)){
+                int a = (((message.charAt(i) + key) - 65) % 26) + 65;
+                str2 += (char)(a);
+            }
+            else if ((message.charAt(i) >= 97 && message.charAt(i) <= 122)){
+                int a = (((message.charAt(i) + key) - 97) % 26) + 97;
+                str2 += (char)(a); 
+            }
+            else {
+                str2 += message.charAt(i);
+            }
+            
+        }
+        return str2;
     }
 
     public static String decryptCaesarKey(String message, int key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String str2 = "";
+        for (int i = 0; i < message.length(); i++){
+            if ((message.charAt(i) >= 65 && message.charAt(i) <= 90)){
+                int a = (((message.charAt(i) - key) + 195) % 26) + 65;
+                str2 += (char)(a);
+            }
+            else if ((message.charAt(i) >= 97 && message.charAt(i) <= 122)){
+                int a = (((message.charAt(i) - key) + 163) % 26) + 97;
+                str2 += (char)(a); 
+            }
+            else {
+                str2 += message.charAt(i);
+            }
+            
+        }
+        return str2;
     }
+
+    
 
 
     public static void main(String[] args) {

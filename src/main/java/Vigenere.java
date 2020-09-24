@@ -2,13 +2,49 @@ import java.util.Scanner;
 
 public class Vigenere {
     public static String encryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String str2 ="";
+        String key2 = key.toUpperCase();
+        int key_len= key.length();
+        int b = 0;
+        for( int i = 0 ; i < message.length(); i++){
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90){
+                int a = ((message.charAt(i) + (key2.charAt(b)-65) - 65) % 26) + 65;
+                str2 += (char)(a);
+                b = (b + 1) % key_len;
+            }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122){
+                int a = ((message.charAt(i) + (key2.charAt(b)-65) - 97) % 26) + 97;
+                str2 += (char)(a);
+                b = (b + 1) % key_len;
+            } 
+            else{
+                str2 += message.charAt(i);
+            }  
+        }
+        return str2;
     }
 
     public static String decryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String str2 ="";
+        String key2 = key.toUpperCase();
+        int key_len= key.length();
+        int b = 0;
+        for( int i = 0 ; i < message.length(); i++){
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90){
+                int a = ((message.charAt(i) - (key2.charAt(b)+65) + 195) % 26) + 65;
+                str2 += (char)(a);
+                b = (b + 1) % key_len;
+            }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122){
+                int a = ((message.charAt(i) - (key2.charAt(b)-65) + 163) % 26) + 97;
+                str2 += (char)(a);
+                b = (b + 1) % key_len;
+            } 
+            else{
+                str2 += message.charAt(i);
+            }  
+        }
+        return str2;
     }
 
 
